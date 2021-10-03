@@ -14,5 +14,3 @@ This repository focuses on **learning and implementing algorithms** in C++ or Ja
 
 - Create a new issue and we'll handle it. 😄
 
-## Maintainer
-This repo is maintained actively by @shakti-20
