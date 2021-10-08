@@ -30,6 +30,6 @@ their STATUS = 2
 **Step 6:** EXIT
 ## Graph Taken
 
-![Graph](Graph Image.jpg)
+![Graph](https://github.com/Kesh2001/Algorithms/blob/main/Graphs/Graph%20Image.jpg)
 
   
