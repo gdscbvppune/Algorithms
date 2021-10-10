@@ -3,6 +3,7 @@
 // 3. should be palced in same order
 // 4. only the top disc of a tower can be moved
 
+//time complexity : O(n)
 #include <bits/stdc++.h>
 using namespace std;
 
