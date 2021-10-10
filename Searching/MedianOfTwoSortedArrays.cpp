@@ -58,6 +58,7 @@ int getMedian(int ar1[], int ar2[], int n, int m)
     }
 
     //if m+n  is even;
+
     // then median will be average of elements
     // at index ((m+n)/2 - 1) and (m+n)/2
     // in the array obtained after merging ar1 and ar2
@@ -95,5 +96,6 @@ int main()
     int n1 = sizeof(ar1) / sizeof(ar1[0]);
     int n2 = sizeof(ar2) / sizeof(ar2[0]);
     cout << getMedian(ar1, ar2, n1, n2);
+
     return 0;
 }
