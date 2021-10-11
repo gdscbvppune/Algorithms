@@ -72,3 +72,11 @@ int maxProfit(int arr[], int n)
         return profit;
     }
 }
+
+int main()
+{
+
+    int arr[] = {1, 5, 3, 8, 12}, n = 5;
+
+    cout << maxProfit(arr, 0, n - 1);
+}
