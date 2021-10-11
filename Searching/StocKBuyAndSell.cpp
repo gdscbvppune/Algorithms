@@ -55,6 +55,10 @@ int main()
 //EFFIECIENT SOLUTION  time complexity : O(n)
 //called as peak valley approach..
 
+#include <iostream>
+#include <cmath>
+using namespace std;
+
 int maxProfit(int arr[], int n)
 {
     int profit = 0;
