@@ -1,71 +1,69 @@
-#include <iostream>
-#include <unordered_set>
+// C++ program to detect loop in a linked list
+#include <bits/stdc++.h>
 using namespace std;
  
-// A Linked List Node
-struct Node
-{
+/* Link list node */
+struct Node {
     int data;
-    Node* next;
+    struct Node* next;
 };
  
-// Helper function to create a new node with the given data and
-// pushes it onto the list's front
-void push(Node*& headRef, int data)
+void push(struct Node** head_ref, int new_data)
 {
-    // create a new linked list node from the heap
-    Node* newNode = new Node;
+    /* allocate node */
+    struct Node* new_node = new Node;
  
-    newNode->data = data;
-    newNode->next = headRef;
-    headRef = newNode;
+    /* put in the data  */
+    new_node->data = new_data;
+ 
+    /* link the old list off the new node */
+    new_node->next = (*head_ref);
+ 
+    /* move the head to point to the new node */
+    (*head_ref) = new_node;
 }
  
-// Function to detect a cycle in a linked list using
-// Floyd’s cycle detection algorithm
-bool detectCycle(Node* head)
+// Returns true if there is a loop in linked list
+// else returns false.
+bool detectLoop(struct Node* h)
 {
-    // take two pointers – `slow` and `fast`
-    Node *slow = head, *fast = head;
- 
-    while (fast && fast->next)
-    {
-        // move slow by one pointer
-        slow = slow->next;
- 
-        // move fast by two pointers
-        fast = fast->next->next;
- 
-        // if they meet any node, the linked list contains a cycle
-        if (slow == fast) {
+    unordered_set<Node*> s;
+    while (h != NULL) {
+        // If this node is already present
+        // in hashmap it means there is a cycle
+        // (Because you we encountering the
+        // node for the second time).
+        if (s.find(h) != s.end())
             return true;
-        }
+ 
+        // If we are seeing the node for
+        // the first time, insert it in hash
+        s.insert(h);
+ 
+        h = h->next;
     }
  
-    // we reach here if the slow and fast pointer does not meet
     return false;
 }
  
+/* Driver program to test above function*/
 int main()
 {
-    // input keys
-    int keys[] = { 1, 2, 3, 4, 5 };
-    int n = sizeof(keys) / sizeof(keys[0]);
+    /* Start with the empty list */
+    struct Node* head = NULL;
  
-    Node* head = nullptr;
-    for (int i = n - 1; i >= 0; i--) {
-        push(head, keys[i]);
-    }
+    push(&head, 20);
+    push(&head, 4);
+    push(&head, 15);
+    push(&head, 10);
  
-    // insert cycle
-    head->next->next->next->next->next = head->next->next;
+    /* Create a loop for testing */
+    head->next->next->next->next = head;
  
-    if (detectCycle(head)) {
-        cout << "Cycle Found";
-    }
-    else {
-        cout << "No Cycle Found";
-    }
+    if (detectLoop(head))
+        cout << "Loop found";
+    else
+        cout << "No Loop";
  
     return 0;
 }
