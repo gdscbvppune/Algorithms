@@ -5,6 +5,7 @@
 using namespace std;
 
 // A function to merge the two half into a sorted data.
+
 void Merge(int *a, int low, int high, int mid)
 {
     // We have low to mid and mid+1 to high already sorted.
